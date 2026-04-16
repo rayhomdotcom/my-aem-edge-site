@@ -168,3 +168,65 @@ h1 {
 .cards a:any-link:hover {
   background-color: #005fb2;
 }
+
+/* --- COSMIC COVE UTILITY & SEARCH --- */
+
+/* 1. Utility (Profile/Cart Icons) - Under Hero, Floated Right */
+.utility {
+  display: flex;
+  justify-content: flex-end; /* Pushes icons to the right side */
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.utility > div {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1.5rem; /* Larger for icons */
+  color: var(--sap-blue);
+  cursor: pointer;
+}
+
+/* Using simple Unicode icons for the '90s developer' simplicity */
+.utility > div::before { content: '👤'; margin-right: 5px; } /* Profile */
+.utility > div::after { content: '🛒'; margin-left: 20px; } /* Cart */
+
+/* 2. Search Block - Centered under H1 */
+.search {
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* The Search Bar Input Look */
+.search > div {
+  width: 100%;
+  padding: 12px 45px 12px 20px;
+  background-color: white;
+  border: 1px solid var(--sap-border-color);
+  border-radius: 25px; /* Clean SAP-style pill shape */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  color: var(--sap-text-light);
+  font-style: italic;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* The Magnifying Glass Icon */
+.search::after {
+  content: '🔍';
+  position: absolute;
+  right: 20px;
+  font-size: 1.2rem;
+  color: var(--sap-blue);
+}
+
+.search:hover {
+  border-color: var(--sap-blue);
+  box-shadow: 0 6px 16px rgba(0, 112, 210, 0.1);
+  transition: all 0.3s ease;
+}
