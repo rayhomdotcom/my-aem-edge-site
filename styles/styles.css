@@ -375,3 +375,12 @@ a.button:hover,
 .cards a:hover {
   background-color: #005fb2;
 }
+
+h2 {
+  border-bottom: 2px solid var(--sap-blue);
+  padding-bottom: 8px;
+  margin-top: 3rem;
+  font-weight: 300; /* Sleek, modern SAP look */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
