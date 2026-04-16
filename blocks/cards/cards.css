@@ -1,27 +1,25 @@
 .cards > ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0;
 }
 
-.cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+.cards li {
+  background: white;
+  border-radius: 8px; /* Standard SAP SuccessFactors curve */
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  list-style: none;
+  overflow: hidden;
+}
+
+.cards li:hover {
+  transform: translateY(-8px);
+  border-bottom: 4px solid var(--comic-gold); /* The 'Nerd Culture' pop */
 }
 
 .cards .cards-card-body {
-  margin: 16px;
-}
-
-.cards .cards-card-image {
-  line-height: 0;
-}
-
-.cards > ul > li img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  padding: 1.5rem;
 }
