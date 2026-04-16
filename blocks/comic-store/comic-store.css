@@ -1,0 +1,85 @@
+.comic-store > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.comic-store > ul > li {
+  display: grid;
+  border: 1px solid #dadada;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--background-color);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 10%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.comic-store > ul > li:hover {
+  border-color: #ffcc00;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgb(0 0 0 / 12%);
+}
+
+.comic-store .comic-store-card-image {
+  line-height: 0;
+}
+
+.comic-store .comic-store-card-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.comic-store .comic-store-card-body {
+  padding: 16px;
+}
+
+.comic-store .comic-store-card-body > :first-child {
+  margin-top: 0;
+}
+
+.comic-store .comic-store-card-body > :last-child {
+  margin-bottom: 0;
+}
+
+.comic-store .comic-store-status {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 8px;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.comic-store .comic-store-status-available {
+  background-color: #0070d2;
+  color: #fff;
+}
+
+.comic-store .comic-store-status-preorder {
+  background-color: #7f56d9;
+  color: #fff;
+}
+
+.comic-store .comic-store-status-sold-out {
+  background-color: #6b7280;
+  color: #fff;
+}
+
+@media (width >= 600px) {
+  .comic-store > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 900px) {
+  .comic-store > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
