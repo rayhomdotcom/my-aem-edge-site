@@ -4,6 +4,7 @@
   --sap-blue: #0070d2;
   --sap-grey-bg: #f4f7f9;
   --sap-text: #32363a;
+  --comic-gold: #f5d142;
 }
 
 body {
@@ -13,7 +14,7 @@ body {
   margin: 0;
 }
 
-/* 1. HERO: Full width banner */
+/* 1. HERO: Cinematic banner */
 .hero .hero-image img {
   width: 100%;
   height: auto;
@@ -22,12 +23,13 @@ body {
   display: block;
 }
 
-/* 2. UTILITY: Bottom far right, under hero */
+/* 2. UTILITY: Aligned to the right corner of the content grid */
 .utility {
   display: flex;
-  justify-content: flex-end; /* Pins to the right */
-  padding: 1rem 20px;
-  max-width: 100%;
+  justify-content: flex-end; /* Pins icons to the right side of the container */
+  max-width: 1200px; /* Matches the width of your columns and cards */
+  margin: 1rem auto 0; /* Centers the container on the page */
+  padding: 0 24px; /* Matches the padding of other sections */
 }
 
 .utility > div {
@@ -41,18 +43,23 @@ body {
   font-size: 1.2rem;
   color: var(--sap-blue);
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .utility > div::before { content: '👤'; }
 .utility > div::after { content: '🛒'; }
 
-/* 3. CENTERED H1: One long line under hero */
+.utility > div:hover::before, .utility > div:hover::after {
+  transform: scale(1.1);
+}
+
+/* 3. CENTERED H1: Forces one line */
 h1 {
   text-align: center;
   color: var(--sap-blue);
-  font-size: clamp(1.5rem, 4vw, 2.5rem); /* Scales to stay on one line */
-  white-space: nowrap; /* Forces one line */
-  margin: 2rem 0;
+  font-size: clamp(1.2rem, 3.5vw, 2.2rem); /* Dynamic size to stay on one line */
+  white-space: nowrap; 
+  margin: 3rem 0 2rem;
   width: 100%;
   font-weight: 800;
   text-transform: uppercase;
@@ -60,48 +67,60 @@ h1 {
 
 /* 4. SEARCH BAR: 80% Width Pill */
 .search {
-  width: 80%; /* Occupation of 80% width */
-  max-width: 1200px;
+  width: 80%;
+  max-width: 1100px;
   margin: 0 auto 5rem;
   position: relative;
 }
 
 .search div {
   background: white;
-  border: 4px solid #000; /* Bold rounded border */
+  border: 4px solid #000;
   border-radius: 50px;
-  padding: 18px 30px 18px 80px;
-  box-shadow: 0 10px 0px rgba(0, 0, 0, 0.1);
+  padding: 16px 30px 16px 80px;
+  box-shadow: 0 8px 0px rgba(0, 0, 0, 0.1);
   color: #000;
   font-weight: 900;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
 }
 
 .search::after {
   content: '🔍';
   position: absolute;
-  left: 30px;
+  left: 25px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
-/* 5. COLUMNS: Pow/Zap Category Images */
+/* 5. COLUMNS: The 'Pow/Zap' Images + Twisty Hover */
 .columns > div {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 24px;
 }
 
-/* 6. CARDS: Fixing Stretched Images */
+.columns img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Essential for the 'Twist' */
+  cursor: pointer;
+}
+
+.columns img:hover {
+  transform: scale(1.15) rotate(-5deg); /* Restored the 'Twisty' effect */
+}
+
+/* 6. CARDS: Fixing Stretched Images & Button Alignment */
 .cards > ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 3rem;
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 4rem auto;
   list-style: none;
   padding: 0 24px;
@@ -110,6 +129,7 @@ h1 {
 .cards li {
   background: white;
   border-radius: 12px;
+  border: 1px solid #ddd;
   box-shadow: 0 4px 15px rgba(0,0,0,0.06);
   transition: all 0.3s ease;
   overflow: hidden;
@@ -117,11 +137,15 @@ h1 {
   flex-direction: column;
 }
 
-/* FIX: This ensures images don't stretch vertically or horizontally */
+.cards li:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 112, 210, 0.12);
+}
+
 .cards .cards-card-image img {
   width: 100%;
-  height: 400px; /* Fixed height container */
-  object-fit: contain; /* Shows entire cover without stretching */
+  height: 380px; 
+  object-fit: contain; /* Prevents stretching, maintains aspect ratio */
   padding: 20px;
   background: #fdfdfd;
 }
@@ -129,6 +153,7 @@ h1 {
 .cards .cards-card-body {
   padding: 2rem;
   flex-grow: 1;
+  text-align: center;
 }
 
 /* [Buy Now] SuccessFactors Buttons */
@@ -136,7 +161,7 @@ h1 {
   display: inline-block;
   background-color: var(--sap-blue);
   color: white;
-  padding: 14px 35px;
+  padding: 12px 30px;
   border-radius: 4px;
   text-decoration: none;
   font-weight: 700;
