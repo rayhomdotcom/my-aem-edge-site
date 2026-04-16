@@ -10,6 +10,20 @@
  * governing permissions and limitations under the License.
  */
 
+ :root {
+  --sap-blue: #0070d2;
+  --sap-grey: #f4f7f9;
+  --sap-text: #32363a;
+  --comic-gold: #f5d142; /* For that 'Exclusive' pop */
+}
+
+body {
+  font-family: '72', Arial, sans-serif; /* SAP's signature font style */
+  background-color: var(--sap-grey);
+  color: var(--sap-text);
+  line-height: 1.6;
+}
+
 :root {
   /* colors */
   --background-color: white;
