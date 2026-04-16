@@ -1,232 +1,87 @@
-/* --- COSMIC COVE COLLECTIBLES GLOBAL STYLES --- */
-/* Mimicking SAP Quartz/Horizon and Comic Con aesthetics */
+/* --- COSMIC COVE: MASTER DESIGN SYSTEM --- */
 
 :root {
-  /* SAP Corporate Palette */
   --sap-blue: #0070d2;
   --sap-grey-bg: #f4f7f9;
-  --sap-text-dark: #32363a;
-  --sap-text-light: #5e646a;
-  --sap-border-color: #e2e2e2;
-
-  /* Comic Con Event Palette (for that fun pop) */
+  --sap-border: #d3d3d3;
+  --sap-text: #32363a;
   --comic-gold: #f5d142;
-  --comic-gold-dark: #ccaa00;
-  --metamodern-cyan: #00d2d2;
-
-  /* SAP-Style Curvature */
-  --sap-corner-radius: 8px;
-
-  /* Global SuccessFactors Typography Vibe */
-  --heading-font-size-xxl: 3.5rem;
-  --heading-font-size-m: 2rem;
-  --body-font-size: 1.1rem;
 }
 
 body {
-  font-family: '72', Arial, sans-serif; /* Clean SAP-style default */
+  font-family: '72', Arial, sans-serif;
   background-color: var(--sap-grey-bg);
-  color: var(--sap-text-dark);
-  font-size: var(--body-font-size);
-  line-height: 1.6;
+  color: var(--sap-text);
   margin: 0;
-  padding: 0;
 }
 
-/* Global H1: The Treasure Trove text */
-h1 {
-  text-align: center;
-  margin: 2rem 0 3rem;
-  font-size: var(--heading-font-size-m);
-  color: var(--sap-blue);
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-/* --- HERO BLOCK (Image only) --- */
-/* styles.css / hero.css */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 60vh; /* Professional banner ratio */
-  min-height: 400px;
-  max-height: 600px;
-  background-color: var(--sap-grey-bg);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+/* 1. HERO: Full visibility for your embedded logo */
 .hero .hero-image img {
   width: 100%;
-  height: 100%;
-  object-fit: contain; /* Full Dublin photo visibility with logo */
-  object-position: center;
-  display: block;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+  background-color: black; /* Frames your 'Treasure Cave' photo */
 }
 
-/* Remove default padding from the Hero container */
-.hero > div {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* --- COLUMNS BLOCK (SAP Launchpad Categories) --- */
-/* styles.css / columns.css */
-.columns > div {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 2rem 0;
-  list-style: none;
-}
-
-.columns > div > li {
-  text-align: center;
-  padding: 2rem;
-  background-color: white;
-  border-radius: var(--sap-corner-radius);
-  border: 1px solid var(--sap-border-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-}
-
-.columns > div > li:hover {
-  transform: translateY(-8px);
-  border-left: 5px solid var(--comic-gold); /* 'Nerd Culture' Pop */
-}
-
-/* Turn Doc category names into sleek H2s */
-.columns h2 {
-  font-size: var(--heading-font-size-m);
-  margin-top: 0;
-  color: var(--sap-blue);
-  border-bottom: 2px solid var(--sap-blue);
-  padding-bottom: 8px;
-  display: inline-block;
-}
-
-/* --- CARDS BLOCK (SAP SuccessFactors Inventory) --- */
-/* styles.css / cards.css */
-.cards > ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 2rem 0;
-  list-style: none;
-}
-
-.cards li {
-  background: white;
-  border-radius: var(--sap-corner-radius);
-  border: 1px solid var(--sap-border-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* SAP Subtle Shadow */
-  transition: all 0.3s ease;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Force comic images to a consistent "Event Badge" ratio */
-.cards .cards-card-image img {
-  width: 100%;
-  height: 350px; 
-  object-fit: contain; /* Shows the whole comic cover */
-  background-color: #f0f0f0;
-  border-bottom: 1px solid #eee;
-}
-
-.cards .cards-card-body {
-  padding: 1.5rem;
-  flex-grow: 1;
-}
-
-.cards li:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 16px 32px rgba(0, 112, 210, 0.15); /* SAP Blue glow on hover */
-}
-
-/* SuccessFactors-Style Buttons for [Buy Now] links */
-.cards a:any-link {
-  display: inline-block;
-  background-color: var(--sap-blue);
-  color: white;
-  padding: 12px 28px;
-  border-radius: 4px; /* Standard SAP curve */
-  text-decoration: none;
-  font-weight: 600;
-  margin-top: 1rem;
-  transition: background 0.2s;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-}
-
-.cards a:any-link:hover {
-  background-color: #005fb2;
-}
-
-/* --- COSMIC COVE UTILITY & SEARCH --- */
-
-/* 1. Utility (Profile/Cart Icons) - Under Hero, Floated Right */
+/* 2. UTILITY: Profile/Cart Icons (Floated Right) */
 .utility {
   display: flex;
-  justify-content: flex-end; /* Pushes icons to the right side */
-  padding: 1rem 2rem;
+  justify-content: flex-end;
+  padding: 1rem 24px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.utility > div {
+/* Targeting the content row div safely */
+.utility div {
   display: flex;
-  gap: 1.5rem;
-  font-size: 1.5rem; /* Larger for icons */
+  gap: 2rem;
+  font-size: 1.8rem; /* Make icons more prominent */
   color: var(--sap-blue);
-  cursor: pointer;
+  font-weight: bold;
 }
 
-/* Using simple Unicode icons for the '90s developer' simplicity */
-.utility > div::before { content: '👤'; margin-right: 5px; } /* Profile */
-.utility > div::after { content: '🛒'; margin-left: 20px; } /* Cart */
-
-/* 2. Search Block - Centered under H1 */
+/* 3. SEARCH BAR: Bold 'SAP Blue' Pill */
 .search {
-  max-width: 600px;
-  margin: 0 auto 3rem;
+  max-width: 650px;
+  margin: 2rem auto 4rem;
   position: relative;
-  display: flex;
-  align-items: center;
 }
 
-/* The Search Bar Input Look */
-.search > div {
-  width: 100%;
-  padding: 12px 45px 12px 20px;
-  background-color: white;
-  border: 1px solid var(--sap-border-color);
-  border-radius: 25px; /* Clean SAP-style pill shape */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  color: var(--sap-text-light);
+/* Targets the actual bar container */
+.search div {
+  background: white;
+  border: 2px solid var(--sap-blue); /* Bolder border for visibility */
+  border-radius: 30px;
+  padding: 15px 30px;
+  box-shadow: 0 8px 24px rgba(0, 112, 210, 0.1);
+  color: #757575;
   font-style: italic;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  font-size: 1.1rem;
 }
 
-/* The Magnifying Glass Icon */
+/* The 'Nerd' Magnifying Glass */
 .search::after {
   content: '🔍';
   position: absolute;
-  right: 20px;
-  font-size: 1.2rem;
-  color: var(--sap-blue);
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  pointer-events: none;
 }
 
-.search:hover {
-  border-color: var(--sap-blue);
-  box-shadow: 0 6px 16px rgba(0, 112, 210, 0.1);
-  transition: all 0.3s ease;
+.search:hover div {
+  border-color: var(--comic-gold);
+  box-shadow: 0 10px 30px rgba(245, 209, 66, 0.2);
+}
+
+/* Ensure the H1 stays clean between blocks */
+h1 {
+  text-align: center;
+  color: var(--sap-blue);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 1rem;
 }
