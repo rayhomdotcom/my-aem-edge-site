@@ -3,9 +3,7 @@
 :root {
   --sap-blue: #0070d2;
   --sap-grey-bg: #f4f7f9;
-  --sap-border: #000;
   --sap-text: #32363a;
-  --comic-gold: #f5d142;
 }
 
 body {
@@ -13,10 +11,9 @@ body {
   background-color: var(--sap-grey-bg);
   color: var(--sap-text);
   margin: 0;
-  position: relative; /* Allows icons to pin to the corner */
 }
 
-/* 1. HERO: Cinematic banner */
+/* 1. HERO: Full width banner */
 .hero .hero-image img {
   width: 100%;
   height: auto;
@@ -25,57 +22,58 @@ body {
   display: block;
 }
 
-/* 2. UTILITY: Pinned to the top-right corner edge */
+/* 2. UTILITY: Bottom far right, under hero */
 .utility {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  z-index: 10; /* Ensures they sit above the hero image */
+  display: flex;
+  justify-content: flex-end; /* Pins to the right */
+  padding: 1rem 20px;
+  max-width: 100%;
 }
 
 .utility > div {
   display: flex;
-  gap: 1.2rem;
+  gap: 1.5rem;
   font-size: 0; 
 }
 
-/* Universal Icons (35% smaller) */
+/* Icons: 35% smaller, universal style */
 .utility > div::before, .utility > div::after {
-  font-size: 1.2rem; 
-  color: white; /* White for better visibility against the hero image */
+  font-size: 1.2rem;
+  color: var(--sap-blue);
   cursor: pointer;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Adds contrast */
 }
 
 .utility > div::before { content: '👤'; }
 .utility > div::after { content: '🛒'; }
 
-/* 3. CENTERED H1 */
+/* 3. CENTERED H1: One long line under hero */
 h1 {
   text-align: center;
   color: var(--sap-blue);
-  font-size: 2.2rem;
-  margin: 3rem auto 1.5rem;
-  max-width: 800px;
-  text-transform: uppercase;
+  font-size: clamp(1.5rem, 4vw, 2.5rem); /* Scales to stay on one line */
+  white-space: nowrap; /* Forces one line */
+  margin: 2rem 0;
+  width: 100%;
   font-weight: 800;
+  text-transform: uppercase;
 }
 
-/* 4. SEARCH BAR: Bold Pill from your example */
+/* 4. SEARCH BAR: 80% Width Pill */
 .search {
-  max-width: 650px;
+  width: 80%; /* Occupation of 80% width */
+  max-width: 1200px;
   margin: 0 auto 5rem;
   position: relative;
 }
 
 .search div {
   background: white;
-  border: 4px solid #000; /* Bolder border per example */
+  border: 4px solid #000; /* Bold rounded border */
   border-radius: 50px;
-  padding: 18px 30px 18px 70px;
+  padding: 18px 30px 18px 80px;
   box-shadow: 0 10px 0px rgba(0, 0, 0, 0.1);
   color: #000;
-  font-weight: 900; /* Extra bold text */
+  font-weight: 900;
   font-size: 1.3rem;
   text-transform: uppercase;
 }
@@ -83,13 +81,13 @@ h1 {
 .search::after {
   content: '🔍';
   position: absolute;
-  left: 25px;
+  left: 30px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
-/* 5. CATEGORY COLUMNS (Pow/Zap) */
+/* 5. COLUMNS: Pow/Zap Category Images */
 .columns > div {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -98,17 +96,12 @@ h1 {
   margin: 0 auto;
 }
 
-.columns img:hover {
-  transform: scale(1.15) rotate(-3deg);
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* 6. CARDS REPAIR: Grid & Button Styling */
+/* 6. CARDS: Fixing Stretched Images */
 .cards > ul {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 3rem;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 4rem auto;
   list-style: none;
   padding: 0 24px;
@@ -117,7 +110,6 @@ h1 {
 .cards li {
   background: white;
   border-radius: 12px;
-  border: 1px solid #ddd;
   box-shadow: 0 4px 15px rgba(0,0,0,0.06);
   transition: all 0.3s ease;
   overflow: hidden;
@@ -125,17 +117,13 @@ h1 {
   flex-direction: column;
 }
 
-.cards li:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 112, 210, 0.15);
-}
-
+/* FIX: This ensures images don't stretch vertically or horizontally */
 .cards .cards-card-image img {
   width: 100%;
-  height: 380px;
-  object-fit: contain;
+  height: 400px; /* Fixed height container */
+  object-fit: contain; /* Shows entire cover without stretching */
   padding: 20px;
-  background: #fafafa;
+  background: #fdfdfd;
 }
 
 .cards .cards-card-body {
@@ -143,22 +131,15 @@ h1 {
   flex-grow: 1;
 }
 
-/* Restoring the SuccessFactors [Buy Now] Buttons */
+/* [Buy Now] SuccessFactors Buttons */
 .cards a:any-link {
   display: inline-block;
   background-color: var(--sap-blue);
   color: white;
-  padding: 12px 30px;
+  padding: 14px 35px;
   border-radius: 4px;
   text-decoration: none;
   font-weight: 700;
   margin-top: 1.5rem;
   text-transform: uppercase;
-  text-align: center;
-  width: auto;
-}
-
-.cards a:any-link:hover {
-  background-color: #0056a3;
-  color: white;
 }
