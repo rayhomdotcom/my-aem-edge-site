@@ -1,0 +1,17 @@
+/* Logo Block Styling */
+.logo {
+    padding: 3rem 0;
+    text-align: center;
+    background-color: var(--sap-grey); /* Keeps the SuccessFactors vibe */
+  }
+  
+  .logo img {
+    max-width: 450px; /* Adjust this based on how big you want the logo to be */
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Subtle 'Comic Con' hover for the brand */
+  .logo img:hover {
+    transform: scale(1.05);
+  }
