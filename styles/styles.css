@@ -356,3 +356,22 @@ main .section.highlight {
   transform: translateY(-5px);
   transition: all 0.3s ease;
 }
+
+/* Turning Doc links into SuccessFactors buttons */
+a.button:any-link,
+.cards a:any-link {
+  display: inline-block;
+  background-color: #0070d2; /* SAP Blue */
+  color: white;
+  padding: 10px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+
+a.button:hover,
+.cards a:hover {
+  background-color: #005fb2;
+}
